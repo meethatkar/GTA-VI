@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Vast+Shadow&family=Rubik+Glitch&display=swap');
+@import "tailwindcss";
+
+body{
+  overflow-x: hidden;
+}
+
+@theme{
+  --font-nav: "Allan";
+  --font-heading: "Rubik Glitch"
+}
