@@ -1,11 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Vast+Shadow&family=Rubik+Glitch&display=swap');
 @import "tailwindcss";
 
-body{
-  overflow-x: hidden;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #090812;
+    color: #F8F7FC;
+    overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  #root {
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #090812;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.95);
+  }
+
+  /* Custom GTA Solid Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090812;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #FF5E7E;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF7592;
+  }
 }
 
-@theme{
-  --font-nav: "Allan";
-  --font-heading: "Rubik Glitch"
+@theme {
+  --font-gta: 'Pricedown', 'Bebas Neue', 'Anton', 'Montserrat', Impact, sans-serif;
+  --font-heading: 'Pricedown', 'Bebas Neue', 'Anton', 'Montserrat', Impact, sans-serif;
+  --font-nav: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-display: 'Bebas Neue', 'Anton', 'Montserrat', sans-serif;
+  --font-script: 'Mr Dafoe', cursive;
+  --font-tech: 'Orbitron', monospace;
+
+  /* Theme Tokens */
+  --color-bg-base: #090812;
+  --color-surface-card: rgba(20, 17, 36, 0.65);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-vice-coral: #FF5E7E;
+  --color-sunset-amber: #FF9966;
+  --color-electric-violet: #9D4EDD;
+  --color-hud-telemetry: #00F0FF;
+  --color-text-primary: #F8F7FC;
+  --color-text-muted: #9E9BB8;
+}
+
+/* Iconic GTA Logo Title Effect */
+.gta-title-stroke {
+  font-family: var(--font-gta);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -webkit-text-stroke: 3px #000000;
+  text-shadow: 
+    0 0 15px rgba(255, 94, 126, 0.6),
+    4px 4px 0px #000000,
+    6px 6px 0px rgba(0, 0, 0, 0.8),
+    0 8px 30px rgba(255, 94, 126, 0.4);
+}
+
+.gta-accent-text {
+  color: #FF5E7E;
+}
+
+.hud-chamfer {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+/* Subtle TV scanline overlay for viral aesthetic */
+.scanlines {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+/* Ticker marquee animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Shine animation for ShinyText */
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+
+.animate-shine {
+  animation: shine 4s linear infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.03); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
 }
